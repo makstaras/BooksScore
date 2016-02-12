@@ -4,25 +4,33 @@ if (Posts.find().count() === 0) {
 
   // create two users
   var tomId = Meteor.users.insert({
-    profile: { name: 'Tom Coleman' }
+    profile: { name: 'Tom' }
   });
   var tom = Meteor.users.findOne(tomId);
   var sachaId = Meteor.users.insert({
-    profile: { name: 'Sacha Greif' }
+    profile: { name: 'Sacha' }
   });
   var sacha = Meteor.users.findOne(sachaId);
 
-  var telescopeId = Posts.insert({
-    title: 'Introducing Telescope',
+  var booksscoreid1 = Posts.insert({
+    title: 'Yaroslav Mudryy',
+    userId: tom._id,
+    author: tom.profile.name,
+    url: '',
+    submitted: now - 7 * 3600 * 1000
+  });
+
+  var booksscoreid2 = Posts.insert({
+    title: 'Book-ye',
     userId: sacha._id,
     author: sacha.profile.name,
-    url: 'http://sachagreif.com/introducing-telescope/',
+    url: 'http://book-ye.com.ua/shop/',
     submitted: now - 7 * 3600 * 1000
   });
 
   for (var i = 0; i < 10; i++) {
     Posts.insert({
-      title: 'Test post #' + i,
+      title: 'Some bookshop #' + i,
       author: sacha.profile.name,
       userId: sacha._id,
       url: 'http://google.com/?q=test-' + i,
