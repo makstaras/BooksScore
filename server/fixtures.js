@@ -13,10 +13,10 @@ if (Posts.find().count() === 0) {
   var sacha = Meteor.users.findOne(sachaId);
 
   var booksscoreid1 = Posts.insert({
-    title: 'Yaroslav Mudryy',
+    title: 'Pidruchnyky i Posibnyky',
     userId: tom._id,
     author: tom.profile.name,
-    url: '',
+    url: 'http://pp-books.com.ua/',
     submitted: now - 7 * 3600 * 1000
   });
 
